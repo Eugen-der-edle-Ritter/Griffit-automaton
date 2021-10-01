@@ -1,3 +1,4 @@
+import { cell } from './types';
 import { hashRule, demonsRule, mercuryRule } from './transitions';
 
 /* RANDOM FILLING */
@@ -5,12 +6,13 @@ export function randomFill(
   states: number,
   height: number,
   width: number
-): number[][] {
-  const result: number[][] = [];
+): cell[][] {
+  const result: cell[][] = [];
   for (let y = 0; y < height; y++) {
-    const row: number[] = [];
+    const row: cell[] = [];
     for (let x = 0; x < width; x++) {
-      row[x] = Math.floor(Math.random() * states);
+      const cell: cell = Math.floor(Math.random() * states) as cell;
+      row[x] = cell;
     }
     result[y] = row;
   }
@@ -20,11 +22,11 @@ export function randomFill(
 /* FILLING BY RULE */
 export function transitionFill(
   rule: string,
-  field: number[][],
+  field: cell[][],
   states: number,
   height: number,
   width: number
-): number[][] {
+): cell[][] {
   return field.map((row, y, arr) => {
     return row.map((cell, x) => {
       // CELL'S NEIGHBOURS

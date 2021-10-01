@@ -1,4 +1,5 @@
 import '../public/style.css';
+import { cell } from './modules/types';
 import { randomFill, transitionFill } from './modules/filling';
 
 /* INITILIZE AUTOMATA STATE */
@@ -56,7 +57,7 @@ window.onload = () => {
   const byteArr: number[][] = colorTransform(statesArr);
 
   /* DEFINE AND FILL 2d ARRAY OF CELL STATES BY RANDOM VALUES */
-  let field: number[][] = randomFill(byteArr.length, height, width);
+  let field: cell[][] = randomFill(byteArr.length, height, width);
 
   /* TRANSFORMING CANVAS CELL'S STATES THROUGH THE TIME */
   let timer = drawAutomata('hash');
