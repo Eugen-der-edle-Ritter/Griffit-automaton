@@ -22,13 +22,12 @@ const statesArr: string[] = [
 ];
 const states: number = statesArr.length;
 
+/* INTERFACE FOR GLOBAL CANVAS AUTOMATON CELL */
 interface ICell {
   width: number;
   height: number;
-  // state: 0 | 1 | 2 | 3 | 4 | 5 | 6 |7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15,
 }
-// interface IField {
-// }
+
 window.onload = () => {
   /* GET CANVAS CONTEXT */
   const canvas: HTMLCanvasElement = document.getElementById(
@@ -38,10 +37,8 @@ window.onload = () => {
 
   const { width, height }: ICell = canvas;
 
-  if (context) {
-    /* DRAW EMPTY RECTANGLE */
-    context.fillRect(0, 0, width, height);
-  }
+  /* DRAW EMPTY RECTANGLE */
+  context!.fillRect(0, 0, width, height);
 
   /* SUBSCRIBE ON TRANSITION-TYPE TOGGLER */
   const ruleSelector: HTMLElement | null =
@@ -85,7 +82,7 @@ window.onload = () => {
 
   /* RENDERING CANVAS GRID */
   function draw(): void {
-    const imageData = context.getImageData(0, 0, width, height);
+    const imageData = context!.getImageData(0, 0, width, height);
     for (let y = 0; y < height; y++) {
       for (let x = 0; x < width; x++) {
         const offset = (width * y + x) * 4;
@@ -94,6 +91,6 @@ window.onload = () => {
         imageData.data[offset + 2] = byteArr[field[y][x]][2];
       }
     }
-    context.putImageData(imageData, 0, 0);
+    context!.putImageData(imageData, 0, 0);
   }
 };
