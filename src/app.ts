@@ -17,7 +17,7 @@ const statesArr: string[] = [
   '#ef6',
   '#4bd',
   '#27f',
-  '33f',
+  '#33f',
   '#059',
   '#567',
 ];
@@ -55,6 +55,8 @@ window.onload = () => {
 
   /* TRANSFORM HEX STRING INTO BYTE ARRAYS */
   const byteArr: number[][] = colorTransform(statesArr);
+
+  console.log(byteArr, 'hi')
 
   /* DEFINE AND FILL 2d ARRAY OF CELL STATES BY RANDOM VALUES */
   let field: cell[][] = randomFill(byteArr.length, height, width);
