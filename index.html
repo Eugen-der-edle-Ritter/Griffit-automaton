@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1 initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Cyclic cellular automaton</title>
+</head>
+<body>
+    <hader>
+        <h1>Cyclic cellular automaton</h1>
+    </hader>
+    <main>
+        <section class="automaton-control">
+            <div class="automaton-control__buttons">
+                <button disabled>Start</button>
+                <button disabled>Stop</button>
+            </div>
+            <div class="automaton-control__sizes">
+                <label>Table sizes: </label>
+                <input type="number" pattern="^\d*$" title="height" value="500" disabled>
+                <input type="number" pattern="^\d*$" title="width" value="500" disabled>
+            </div>
+            <div class="automaton-control__rules">
+                <label>Rule: </label>
+                <select disabled>
+                    <option selected>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+        </section>
+        <section class="automaton-field">
+            <canvas id="canvas" width="500" height="500"></canvas>
+        </section>
+        <section class="automaton-speed">
+            <label>Speed: </label>
+            <input type="range" min="0" max="10" value="7" disabled>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
