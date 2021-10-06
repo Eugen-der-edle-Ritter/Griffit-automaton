@@ -1,3 +1,5 @@
+import "./style.css";
+
 window.onload = () => {
     /* GET CANVAS CONTEXT */
     const canvas = document.getElementById('canvas');
