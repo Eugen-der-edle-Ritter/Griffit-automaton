@@ -18,9 +18,9 @@ describe('random filling', () => {
 
 /* Testing filling by hash rule */
 
-describe('transition filling hash', () => {
+describe('transition filling Hash', () => {
   const flatArr: number[] = transitionFill(
-    'hash',
+    'Hash',
     [
       [5, 5, 5],
       [5, 5, 5],
@@ -42,11 +42,11 @@ describe('transition filling hash', () => {
   });
 });
 
-/* Testing filling by demons rule */
+/* Testing filling by Demons rule */
 
-describe('transition filling demons', () => {
+describe('transition filling Demons', () => {
   const flatArr: number[] = transitionFill(
-    'demons',
+    'Demons',
     [
       [5, 5, 5],
       [5, 5, 5],
@@ -70,9 +70,9 @@ describe('transition filling demons', () => {
 
 /* Testing filling by mercury rule */
 
-describe('transition filling mercury', () => {
+describe('transition filling Venus', () => {
   const flatArr: number[] = transitionFill(
-    'mercury',
+    'Venus',
     [
       [5, 5, 5],
       [5, 5, 5],

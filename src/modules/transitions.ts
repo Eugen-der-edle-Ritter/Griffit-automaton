@@ -1,31 +1,17 @@
-import { cell } from './types';
-
-interface INeighbors {
-  top: cell;
-  right: cell;
-  bottom: cell;
-  left: cell;
-  rightTop: cell;
-  rightBottom: cell;
-  leftBottom: cell;
-  leftTop: cell;
-}
+import { Cell } from './types';
+import { INeighbours } from './interfaces';
 
 /** HASH RULE **/
-export function hashRule(
-  cell: cell,
-  neighbors: INeighbors,
-  states: number
-): cell {
+export function hashRule(cell: Cell, n: INeighbours, states: number): Cell {
   const neighboursSum =
-    neighbors.top +
-    neighbors.right +
-    neighbors.bottom +
-    neighbors.left +
-    neighbors.rightTop +
-    neighbors.rightBottom +
-    neighbors.leftBottom +
-    neighbors.leftTop;
+    n.top +
+    n.right +
+    n.bottom +
+    n.left +
+    n.rightTop +
+    n.rightBottom +
+    n.leftBottom +
+    n.leftTop;
   if (cell === 0) {
     if (neighboursSum < 5) {
       return 0;
@@ -38,21 +24,18 @@ export function hashRule(
   if (cell === states - 1) {
     return 0;
   }
-  return Math.min(Math.floor(neighboursSum / 8) + 5, states - 1) as cell;
+  return Math.min(Math.floor(neighboursSum / 8) + 5, states - 1) as Cell;
 }
 
 /** RULE WITH DEMONS **/
-export function demonsRule(
-  cell: cell,
-  neighbors: INeighbors,
-  states: number
-): cell {
-  const nextState = (cell + 1) % states;
+export function demonsRule(cell: Cell, n: INeighbours, states: number): Cell {
+  const nextState: Cell = ((cell + 1) % states) as Cell;
+  // return Object.values(n).includes(nextState) ? nextState : cell;
   if (
-    neighbors.top === nextState ||
-    neighbors.right === nextState ||
-    neighbors.bottom === nextState ||
-    neighbors.left === nextState
+    n.top === nextState ||
+    n.right === nextState ||
+    n.bottom === nextState ||
+    n.left === nextState
   ) {
     return nextState;
   }
@@ -60,19 +43,16 @@ export function demonsRule(
 }
 
 /** MERCURY RULE **/
-export function mercuryRule(cell: cell, neighbors: INeighbors): cell {
+export function venusRule(cell: Cell, n: INeighbours): Cell {
   if (cell === 0) {
-    return (2 * (neighbors.leftTop % 2 ^ neighbors.rightTop % 2) +
-      (neighbors.top % 2)) as cell;
+    return (2 * (n.leftTop % 2 ^ n.rightTop % 2) + (n.top % 2)) as Cell;
   }
   if (cell === 1) {
-    return (2 * (neighbors.leftTop % 2 ^ neighbors.leftBottom % 2) +
-      (neighbors.left % 2)) as cell;
+    return (2 * (n.leftTop % 2 ^ n.leftBottom % 2) + (n.left % 2)) as Cell;
   }
   if (cell === 2) {
-    return (2 * (neighbors.leftBottom % 2 ^ neighbors.rightBottom % 2) +
-      (neighbors.bottom % 2)) as cell;
+    return (2 * (n.leftBottom % 2 ^ n.rightBottom % 2) +
+      (n.bottom % 2)) as Cell;
   }
-  return (2 * (neighbors.rightBottom % 2 ^ neighbors.rightTop % 2) +
-    (neighbors.right % 2)) as cell;
+  return (2 * (n.rightBottom % 2 ^ n.rightTop % 2) + (n.right % 2)) as Cell;
 }

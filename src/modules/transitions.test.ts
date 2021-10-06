@@ -1,9 +1,10 @@
-import { hashRule, demonsRule, mercuryRule } from './transitions';
+import { INeighbours } from './interfaces';
+import { hashRule, demonsRule, venusRule } from './transitions';
 
 /* Testing hash rule */
 
-describe('hash rule', () => {
-  const neighborsBelow5 = {
+describe('Hash rule', () => {
+  const neighborsBelow5: INeighbours = {
     top: 1,
     right: 0,
     bottom: 1,
@@ -13,7 +14,7 @@ describe('hash rule', () => {
     leftBottom: 1,
     leftTop: 0,
   };
-  const neighborsBelow100 = {
+  const neighborsBelow100: INeighbours = {
     top: 1,
     right: 1,
     bottom: 1,
@@ -23,7 +24,7 @@ describe('hash rule', () => {
     leftBottom: 1,
     leftTop: 1,
   };
-  const neighborsAbove100 = {
+  const neighborsAbove100: INeighbours = {
     top: 15,
     right: 15,
     bottom: 15,
@@ -68,10 +69,10 @@ describe('hash rule', () => {
   });
 });
 
-/* Testing demons rule */
+/* Testing Demons rule */
 
-describe('demons rule', () => {
-  const neighbors = {
+describe('Demons rule', () => {
+  const neighbors: INeighbours = {
     top: 1,
     right: 0,
     bottom: 1,
@@ -91,8 +92,8 @@ describe('demons rule', () => {
 
 /* Testing mercury rule */
 
-describe('mercury rule', () => {
-  const neighbors = {
+describe('Venus rule', () => {
+  const neighbors: INeighbours = {
     top: 1,
     right: 2,
     bottom: 3,
@@ -103,15 +104,15 @@ describe('mercury rule', () => {
     leftTop: 8,
   };
   it('zero-state cell', () => {
-    expect(mercuryRule(0, neighbors)).toBe(3);
+    expect(venusRule(0, neighbors)).toBe(3);
   });
   it('cell with state 1', () => {
-    expect(mercuryRule(1, neighbors)).toBe(2);
+    expect(venusRule(1, neighbors)).toBe(2);
   });
   it('cell with state 2', () => {
-    expect(mercuryRule(2, neighbors)).toBe(3);
+    expect(venusRule(2, neighbors)).toBe(3);
   });
   it('cell with state > 2', () => {
-    expect(mercuryRule(3, neighbors)).toBe(2);
+    expect(venusRule(3, neighbors)).toBe(2);
   });
 });
