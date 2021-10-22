@@ -1,5 +1,5 @@
 import { INeighbours } from './interfaces';
-import { hashRule, demonsRule, venusRule } from './transitions';
+import { hashRule, demonsRule, venusRule, neighboursSum } from './transitions';
 
 /* Testing hash rule */
 
@@ -90,7 +90,7 @@ describe('Demons rule', () => {
   });
 });
 
-/* Testing mercury rule */
+/* Testing venus rule */
 
 describe('Venus rule', () => {
   const neighbors: INeighbours = {
@@ -114,5 +114,16 @@ describe('Venus rule', () => {
   });
   it('cell with state > 2', () => {
     expect(venusRule(3, neighbors)).toBe(2);
+  });
+});
+
+/* Testing sum function */
+
+describe('Neighbours sum function', () => {
+  it('zero-sum', () => {
+    expect(neighboursSum([0])).toBe(0);
+  });
+  it('non-zero neigbours states', () => {
+    expect(neighboursSum([1, 1, 2, 3])).toBe(7);
   });
 });
