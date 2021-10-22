@@ -1,13 +1,17 @@
-import React, { FC, ChangeEvent } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { setSpeed } from './speedSlice';
+import { RootState } from '@/app/store';
 
 export interface SliderProps {
   label: string;
-  value: number;
-  handleSpeed: (event: ChangeEvent) => void;
 }
 
-export const Slider: FC<SliderProps> = ({ label, value, handleSpeed }) => {
+export const Slider: FC<SliderProps> = ({ label }) => {
+  const speed: number = useSelector((state: RootState) => state.speed.value);
+  const dispatch = useDispatch();
   return (
     <>
       <Label>{label}: </Label>
@@ -15,8 +19,8 @@ export const Slider: FC<SliderProps> = ({ label, value, handleSpeed }) => {
         type="range"
         min={1}
         max={100}
-        value={value}
-        onChange={handleSpeed}
+        value={speed}
+        onChange={(e) => dispatch(setSpeed(e.target.value))}
       />
     </>
   );

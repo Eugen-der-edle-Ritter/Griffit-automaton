@@ -1,14 +1,16 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
+import { useDispatch } from 'react-redux';
+import { setPlay } from './playSlice';
 
-export interface ToggleProps {
-  label: string;
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+export interface PlayTogglerProps {
+  value: boolean;
 }
 
-export const Toggle: FC<ToggleProps> = ({ children, onClick }) => (
-  <Button onClick={onClick}>{children}</Button>
-);
+export const PlayToggler: FC<PlayTogglerProps> = ({ children, value }) => {
+  const dispatch = useDispatch();
+  return <Button onClick={() => dispatch(setPlay(value))}>{children}</Button>;
+};
 
 const Button = styled.button`
   margin: 0 0.3rem;
