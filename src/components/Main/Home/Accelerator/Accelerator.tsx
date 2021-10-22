@@ -1,17 +1,12 @@
-import React, { FC, ChangeEvent } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
 import { Slider } from './Slider';
 
-export interface AcceleratorProps {
-  speed: number;
-  handleSpeed: (event: ChangeEvent) => void;
-}
-
-export const Accelerator: FC<AcceleratorProps> = ({ speed, handleSpeed }) => {
+export const Accelerator: FC = () => {
   return (
     <Section>
-      <Slider value={speed} label="Speed" handleSpeed={handleSpeed} />
+      <Slider label="Speed" />
     </Section>
   );
 };

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { ControlPanel, ControlPanelProps } from './ControlPanel';
+import { ControlPanel } from './ControlPanel';
 
 export default {
   component: ControlPanel,
   title: 'Control Panel/ControlPanel',
 } as Meta;
 
-const Template: Story<ControlPanelProps> = (args) => <ControlPanel {...args} />;
+const Template: Story = (args) => <ControlPanel {...args} />;
 
 export const PanelExample = Template.bind({});
 
