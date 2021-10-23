@@ -17,10 +17,13 @@ import { ColorRandomizer } from './colorRandomizer/ColorRandomizer';
 
 export const ControlPanel: FC = () => {
   const dispatch = useDispatch();
-  const { past, future } = useSelector((state: RootState) => state.cells);
-  const isPlaying: boolean = useSelector(
-    (state: RootState) => state.play.value
-  );
+  const { past, future, isPlaying } = useSelector((state: RootState) => {
+    return {
+      past: state.cells.past,
+      future: state.cells.future,
+      isPlaying: state.play.value,
+    };
+  });
   const canUndo: boolean = past.length > 0;
   const canRedo: boolean = future.length > 0;
   const toggleButton = isPlaying ? <PauseOutlined /> : <CaretRightOutlined />;
@@ -29,6 +32,7 @@ export const ControlPanel: FC = () => {
     <Section>
       <Wrapper>
         <Button
+          data-testid="undo"
           onClick={() => dispatch(UndoActionCreators.undo())}
           disabled={!canUndo}
         >
@@ -36,6 +40,7 @@ export const ControlPanel: FC = () => {
         </Button>
         <PlayToggler value={!isPlaying}>{toggleButton}</PlayToggler>
         <Button
+          data-testid="redo"
           onClick={() => dispatch(UndoActionCreators.redo())}
           disabled={!canRedo}
         >
@@ -53,6 +58,7 @@ export const ControlPanel: FC = () => {
 const Section = styled.section`
   margin: 1rem auto 0;
   padding: 1rem;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -74,7 +80,6 @@ const Button = styled.button`
   }
   &:disabled {
     cursor: not-allowed;
-    background-color: #383b405e;
   }
 `;
 const Wrapper = styled.div``;

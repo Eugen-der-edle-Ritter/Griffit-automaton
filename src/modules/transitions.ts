@@ -2,21 +2,17 @@ import { Cell } from './types';
 import { INeighbours } from './interfaces';
 
 /** HASH RULE **/
-export function hashRule(cell: Cell, n: INeighbours, states: number): Cell {
-  const neighboursSum =
-    n.top +
-    n.right +
-    n.bottom +
-    n.left +
-    n.rightTop +
-    n.rightBottom +
-    n.leftBottom +
-    n.leftTop;
+export function hashRule(
+  cell: Cell,
+  neighbours: INeighbours,
+  states: number
+): Cell {
+  const sum = neighboursSum(Object.values(neighbours));
   if (cell === 0) {
-    if (neighboursSum < 5) {
+    if (sum < 5) {
       return 0;
     }
-    if (neighboursSum < 100) {
+    if (sum < 100) {
       return 2;
     }
     return 3;
@@ -24,22 +20,24 @@ export function hashRule(cell: Cell, n: INeighbours, states: number): Cell {
   if (cell === states - 1) {
     return 0;
   }
-  return Math.min(Math.floor(neighboursSum / 8) + 5, states - 1) as Cell;
+  return Math.min(Math.floor(sum / 8) + 5, states - 1) as Cell;
 }
 
 /** RULE WITH DEMONS **/
-export function demonsRule(cell: Cell, n: INeighbours, states: number): Cell {
+export function demonsRule(
+  cell: Cell,
+  neighbours: INeighbours,
+  states: number
+): Cell {
   const nextState: Cell = ((cell + 1) % states) as Cell;
-  // return Object.values(n).includes(nextState) ? nextState : cell;
-  if (
-    n.top === nextState ||
-    n.right === nextState ||
-    n.bottom === nextState ||
-    n.left === nextState
-  ) {
-    return nextState;
-  }
-  return cell;
+  return [
+    neighbours.top,
+    neighbours.right,
+    neighbours.bottom,
+    neighbours.left,
+  ].includes(nextState)
+    ? nextState
+    : cell;
 }
 
 /** MERCURY RULE **/
@@ -55,4 +53,9 @@ export function venusRule(cell: Cell, n: INeighbours): Cell {
       (n.bottom % 2)) as Cell;
   }
   return (2 * (n.rightBottom % 2 ^ n.rightTop % 2) + (n.right % 2)) as Cell;
+}
+
+/** NEIGHBOURS SUM FUNCTION **/
+export function neighboursSum(neighbours: Cell[]): number {
+  return (neighbours as number[]).reduce((el: number, acc: number) => el + acc);
 }

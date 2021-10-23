@@ -4,6 +4,7 @@ import { RootState } from '@/app/store';
 import styled from '@emotion/styled';
 
 import { Cell } from '@/types';
+import { height, scale } from '@/constants/constants';
 
 export interface DisplayProps {
   cellsState: Cell[][];
@@ -61,17 +62,15 @@ export const Display: FC<DisplayProps> = ({ cellsState, width, height }) => {
   }, []);
 
   useEffect(() => {
-    if (cellsState.length > 0) {
-      const canvas: HTMLCanvasElement | null = canvasRef.current;
-      if (canvas) {
-        const context: CanvasRenderingContext2D = canvas.getContext(
-          '2d'
-        ) as CanvasRenderingContext2D;
+    const canvas: HTMLCanvasElement | null = canvasRef.current;
+    if (cellsState.length > 0 && canvas) {
+      const context: CanvasRenderingContext2D = canvas.getContext(
+        '2d'
+      ) as CanvasRenderingContext2D;
 
-        const data = renderCanvas(context, cellsState, width, height, byteArr);
+      const data = renderCanvas(context, cellsState, width, height, byteArr);
 
-        context.putImageData(data, 0, 0);
-      }
+      context.putImageData(data, 0, 0);
     }
   }, [cellsState]);
   return (
@@ -82,6 +81,8 @@ export const Display: FC<DisplayProps> = ({ cellsState, width, height }) => {
 };
 
 const Section = styled.section`
-  height: 350px;
+  margin-top: ${height / 4}px;
+  height: ${height}px;
+  transform: scale(${scale});
 `;
 const Canvas = styled.canvas``;

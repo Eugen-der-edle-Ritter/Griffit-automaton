@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider, useDispatch, useSelector } from 'react-redux';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 import { store } from '@/app/store';
 
@@ -11,17 +10,19 @@ jest.mock('react-redux', () => ({
   __esModule: true,
   ...jest.requireActual('react-redux'),
   useDispatch: jest.fn(),
-  useSelector: jest
-    .fn()
-    .mockReturnValueOnce({ past: [], future: [] })
-    .mockReturnValueOnce({ isPlaying: true }),
+  useSelector: jest.fn(),
 }));
 
 describe('ControlPanel test cases', () => {
-  it('ControlPanel dispatching', () => {
+  it('ControlPanel renders on pause', () => {
     const mockDispatch = jest.fn();
 
     (useDispatch as jest.Mock).mockReturnValue(mockDispatch);
+    (useSelector as jest.Mock).mockReturnValue({
+      past: [1, 2, 3],
+      future: [1, 2, 3],
+      isPlaying: false,
+    });
 
     const { asFragment } = render(
       <Provider store={store}>
@@ -31,9 +32,28 @@ describe('ControlPanel test cases', () => {
 
     expect(asFragment()).toMatchSnapshot();
 
-    const buttons = screen.getAllByRole('button');
-    buttons.forEach((el) => userEvent.click(el));
+    fireEvent.click(screen.getByTestId('undo'));
+    expect(mockDispatch).toHaveBeenCalled();
 
-    expect(mockDispatch).toHaveBeenCalledTimes(2);
+    fireEvent.click(screen.getByTestId('redo'));
+    expect(mockDispatch).toHaveBeenCalled();
+  });
+  it('ControlPanel renders on pause', () => {
+    const mockDispatch = jest.fn();
+
+    (useDispatch as jest.Mock).mockReturnValue(mockDispatch);
+    (useSelector as jest.Mock).mockReturnValue({
+      past: [1, 2, 3],
+      future: [1, 2, 3],
+      isPlaying: true,
+    });
+
+    const { asFragment } = render(
+      <Provider store={store}>
+        <ControlPanel />
+      </Provider>
+    );
+
+    expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -12,7 +12,7 @@ export const App: FC = () => {
       <Header
         sections={[
           { id: 0, path: '/', title: 'Home' },
-          { id: 0, path: '/about', title: 'About' },
+          { id: 1, path: '/about', title: 'About' },
         ]}
       />
       <Switch>

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayToggler test cases PlayToggler in pause state 1`] = `
+<DocumentFragment>
+  <button
+    class="css-2ly8m7"
+  />
+</DocumentFragment>
+`;
+
+exports[`PlayToggler test cases PlayToggler in play state 1`] = `
+<DocumentFragment>
+  <button
+    class="css-2ly8m7"
+  />
+</DocumentFragment>
+`;

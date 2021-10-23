@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider, useDispatch } from 'react-redux';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 import { store } from '@/app/store';
 
@@ -14,7 +13,7 @@ jest.mock('react-redux', () => ({
 }));
 
 describe('RuleSwitcher test cases', () => {
-  it('RuleSwitcher in play state', () => {
+  it('RuleSwitcher changing value', () => {
     const mockDispatch = jest.fn();
 
     (useDispatch as jest.Mock).mockReturnValue(mockDispatch);
@@ -27,10 +26,10 @@ describe('RuleSwitcher test cases', () => {
 
     expect(asFragment()).toMatchSnapshot();
 
-    const options = screen.getAllByRole('option');
+    fireEvent.change(screen.getByTestId('select'), {
+      target: { value: 'Demons' },
+    });
 
-    options.forEach((el) => userEvent.selectOptions(el, 'Hash'));
-
-    expect(mockDispatch).toHaveBeenCalledTimes(6);
+    expect(mockDispatch).toHaveBeenCalledTimes(1);
   });
 });

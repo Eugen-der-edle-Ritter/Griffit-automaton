@@ -9,12 +9,11 @@ export function randomFill(
 ): Field {
   const result: Field = [];
   for (let y = 0; y < height; y++) {
-    const row: Cell[] = [];
+    result[y] = [];
     for (let x = 0; x < width; x++) {
       const cell: Cell = Math.floor(Math.random() * states) as Cell;
-      row[x] = cell;
+      result[y][x] = cell;
     }
-    result[y] = row;
   }
   return result;
 }

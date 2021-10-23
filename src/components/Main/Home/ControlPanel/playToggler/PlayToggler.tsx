@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { useDispatch } from 'react-redux';
+
+import { runTimer } from '@/app/store';
 import { setPlay } from './playSlice';
 
 export interface PlayTogglerProps {
@@ -9,7 +11,20 @@ export interface PlayTogglerProps {
 
 export const PlayToggler: FC<PlayTogglerProps> = ({ children, value }) => {
   const dispatch = useDispatch();
-  return <Button onClick={() => dispatch(setPlay(value))}>{children}</Button>;
+  return (
+    <Button
+      onClick={() => {
+        if (value) {
+          dispatch(setPlay(value));
+          dispatch(runTimer());
+        } else {
+          dispatch(setPlay(value));
+        }
+      }}
+    >
+      {children}
+    </Button>
+  );
 };
 
 const Button = styled.button`

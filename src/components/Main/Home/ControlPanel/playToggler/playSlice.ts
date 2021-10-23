@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const playSlice = createSlice({
   name: 'play',
   initialState: {
-    value: true,
+    value: false,
   },
   reducers: {
     setPlay: (state, action) => {

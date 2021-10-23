@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorRandomizer test cases ColorRandomizer dispatch color change 1`] = `
+<DocumentFragment>
+  <button
+    class="css-2ly8m7"
+  />
+</DocumentFragment>
+`;
