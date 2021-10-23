@@ -1,4 +1,4 @@
-import { runTimer, recursiveUpdate, RootState } from './store';
+import { runTimer, recursiveUpdate, RootState } from './automaton';
 
 const baseInitialState: RootState = {
   cells: {

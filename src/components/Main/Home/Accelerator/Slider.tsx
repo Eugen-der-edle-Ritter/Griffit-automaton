@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { setSpeed } from './speedSlice';
-import { RootState } from '@/app/store';
+import { RootState } from '@/automaton/automaton';
 
 export interface SliderProps {
   label: string;

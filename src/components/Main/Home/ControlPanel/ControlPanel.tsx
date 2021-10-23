@@ -2,14 +2,8 @@ import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionCreators as UndoActionCreators } from 'redux-undo';
-import { RootState } from '@/app/store';
-import {
-  PauseOutlined,
-  CaretRightOutlined,
-  StepForwardOutlined,
-  StepBackwardOutlined,
-  BgColorsOutlined,
-} from '@ant-design/icons';
+import { RootState } from '@/automaton/automaton';
+import { StepForwardOutlined, StepBackwardOutlined } from '@ant-design/icons';
 
 import { PlayToggler } from './playToggler/PlayToggler';
 import { RuleSwitcher } from './ruleSwitcher/RuleSwitcher';
@@ -26,7 +20,6 @@ export const ControlPanel: FC = () => {
   });
   const canUndo: boolean = past.length > 0;
   const canRedo: boolean = future.length > 0;
-  const toggleButton = isPlaying ? <PauseOutlined /> : <CaretRightOutlined />;
 
   return (
     <Section>
@@ -38,7 +31,7 @@ export const ControlPanel: FC = () => {
         >
           <StepBackwardOutlined />
         </Button>
-        <PlayToggler value={!isPlaying}>{toggleButton}</PlayToggler>
+        <PlayToggler value={!isPlaying} />
         <Button
           data-testid="redo"
           onClick={() => dispatch(UndoActionCreators.redo())}
@@ -48,9 +41,7 @@ export const ControlPanel: FC = () => {
         </Button>
       </Wrapper>
       <RuleSwitcher label="Rule" options={['Hash', 'Demons', 'Venus']} />
-      <ColorRandomizer>
-        <BgColorsOutlined />
-      </ColorRandomizer>
+      <ColorRandomizer />
     </Section>
   );
 };

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from '@emotion/styled';
 
 import { Cell, Rule } from '@/types';
-import { randomUpdate, RootState } from '@/app/store';
+import { randomUpdate, RootState } from '@/automaton/automaton';
 
 import { width, height, scale } from '@/constants/constants';
 

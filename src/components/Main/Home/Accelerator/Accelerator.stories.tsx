@@ -1,5 +1,5 @@
 import React from 'react';
-import { store } from '@/app/store';
+import { store } from '@/automaton/automaton';
 import { Provider } from 'react-redux';
 
 import { Story, Meta } from '@storybook/react';

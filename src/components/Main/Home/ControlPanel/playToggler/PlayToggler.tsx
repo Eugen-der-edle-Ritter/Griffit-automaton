@@ -2,14 +2,16 @@ import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { useDispatch } from 'react-redux';
 
-import { runTimer } from '@/app/store';
+import { PauseOutlined, CaretRightOutlined } from '@ant-design/icons';
+
+import { runTimer } from '@/automaton/automaton';
 import { setPlay } from './playSlice';
 
 export interface PlayTogglerProps {
   value: boolean;
 }
 
-export const PlayToggler: FC<PlayTogglerProps> = ({ children, value }) => {
+export const PlayToggler: FC<PlayTogglerProps> = ({ value }) => {
   const dispatch = useDispatch();
   return (
     <Button
@@ -22,7 +24,7 @@ export const PlayToggler: FC<PlayTogglerProps> = ({ children, value }) => {
         }
       }}
     >
-      {children}
+      {value ? <CaretRightOutlined /> : <PauseOutlined />}
     </Button>
   );
 };

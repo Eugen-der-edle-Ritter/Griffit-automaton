@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { render, screen, fireEvent } from '@testing-library/react';
 
-import { store } from '@/app/store';
+import { store } from '@/automaton/automaton';
 
 import { ControlPanel } from './ControlPanel';
 

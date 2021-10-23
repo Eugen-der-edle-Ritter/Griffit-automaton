@@ -1,5 +1,5 @@
 import React from 'react';
-import { store } from '@/app/store';
+import { store } from '@/automaton/automaton';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 
 import { render } from '@testing-library/react';

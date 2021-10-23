@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setRule } from './ruleSlice';
 
 import { Rule } from '@/modules/types';
-import { RootState } from '@/app/store';
+import { RootState } from '@/automaton/automaton';
 
 export interface RuleSwitcherProps {
   label: string;

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '@/app/store';
+import { RootState } from '@/automaton/automaton';
 import styled from '@emotion/styled';
 
 import { width, height } from '@/constants/constants';
