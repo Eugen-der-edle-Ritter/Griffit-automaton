@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
 
 /*** VALIABLES CSS ***/
 :root {
@@ -33,7 +33,7 @@ body {
     background-color: var(--overflow);
     font-family: var(--body-font);
 }
-main {
+/* main {
     max-width: var(--default-size);
     margin: 0 auto;
 }
@@ -93,7 +93,7 @@ select {
     background-color: var(--surface);
     border-radius: 0 0 .7rem .7rem;
     text-align: center;
-}
+} */
 
 @media screen and (max-width: 575px) {
     main {

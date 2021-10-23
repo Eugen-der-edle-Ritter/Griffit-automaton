@@ -1,17 +1,17 @@
-import { cell } from './types';
-import { hashRule, demonsRule, mercuryRule } from './transitions';
+import { Rule, Cell, Field } from './types';
+import { hashRule, demonsRule, venusRule } from './transitions';
 
 /* RANDOM FILLING */
 export function randomFill(
   states: number,
   height: number,
   width: number
-): cell[][] {
-  const result: cell[][] = [];
+): Field {
+  const result: Field = [];
   for (let y = 0; y < height; y++) {
-    const row: cell[] = [];
+    const row: Cell[] = [];
     for (let x = 0; x < width; x++) {
-      const cell: cell = Math.floor(Math.random() * states) as cell;
+      const cell: Cell = Math.floor(Math.random() * states) as Cell;
       row[x] = cell;
     }
     result[y] = row;
@@ -21,12 +21,12 @@ export function randomFill(
 
 /* FILLING BY RULE */
 export function transitionFill(
-  rule: string,
-  field: cell[][],
+  rule: Rule,
+  field: Field,
   states: number,
   height: number,
   width: number
-): cell[][] {
+): Field {
   return field.map((row, y, arr) => {
     return row.map((cell, x) => {
       // CELL'S NEIGHBOURS
@@ -41,13 +41,13 @@ export function transitionFill(
         leftTop: arr[(y + 1) % height][(x + width - 1) % width],
       };
       // CHANGE CELL STATE VIA SELECTED RULE
-      if (rule === 'hash') {
+      if (rule === 'Hash') {
         return hashRule(cell, neighbors, states);
       }
-      if (rule === 'demons') {
+      if (rule === 'Demons') {
         return demonsRule(cell, neighbors, states);
       }
-      return mercuryRule(cell, neighbors);
+      return venusRule(cell, neighbors);
     });
   });
 }

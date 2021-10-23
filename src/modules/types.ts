@@ -1,4 +1,5 @@
-export type cell =
+export type Rule = 'Hash' | 'Demons' | 'Venus';
+export type Cell =
   | 0
   | 1
   | 2
@@ -15,3 +16,5 @@ export type cell =
   | 13
   | 14
   | 15;
+
+export type Field = Cell[][];
