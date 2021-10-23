@@ -6,7 +6,7 @@ import { Header, HeaderProps } from './Header';
 
 export default {
   component: Header,
-  title: 'Components/Header',
+  title: 'Layouts/Header',
 } as Meta;
 
 const Template: Story<HeaderProps> = (args) => (

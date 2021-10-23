@@ -1,4 +1,7 @@
 import React from 'react';
+import { store } from '@/app/store';
+import { Provider } from 'react-redux';
+
 import { Story, Meta } from '@storybook/react';
 
 import { PlayToggler, PlayTogglerProps } from './PlayToggler';
@@ -8,7 +11,11 @@ export default {
   title: 'Control Panel/PlayToggler',
 } as Meta;
 
-const Template: Story<PlayTogglerProps> = (args) => <PlayToggler {...args} />;
+const Template: Story<PlayTogglerProps> = (args) => (
+  <Provider store={store}>
+    <PlayToggler {...args} />
+  </Provider>
+);
 
 export const PlayTogglerExample = Template.bind({});
 

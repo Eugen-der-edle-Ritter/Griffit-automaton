@@ -1,6 +1,7 @@
 module.exports = {
   clearMocks: true,
   collectCoverage: true,
+  coverageReporters: ['json', 'html'],
   coverageThreshold: {
     global: {
       branches: 90,

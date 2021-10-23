@@ -1,4 +1,7 @@
 import React from 'react';
+import { store } from '@/app/store';
+import { Provider } from 'react-redux';
+
 import { Story, Meta } from '@storybook/react';
 
 import { ControlPanel } from './ControlPanel';
@@ -8,7 +11,11 @@ export default {
   title: 'Control Panel/ControlPanel',
 } as Meta;
 
-const Template: Story = (args) => <ControlPanel {...args} />;
+const Template: Story = (args) => (
+  <Provider store={store}>
+    <ControlPanel {...args} />
+  </Provider>
+);
 
 export const PanelExample = Template.bind({});
 
