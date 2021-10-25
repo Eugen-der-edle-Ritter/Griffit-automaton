@@ -1,15 +1,13 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
-
 /*** VALIABLES CSS ***/
 :root {
     /* COLOR */
     --overflow: #010101;
-    --base: #1F2023;
+    --base: #acacac;
     --surface: #1b1d20;
     --overlay-dark: #2D2F34;
     --overlay-light: #383B40;
     --text-color: #E6E6E6;
-    --text-gray: #DDDDDD;
+    --text-gray: #dddddd;
 
     /* FONT */
     --body-font: 'Roboto', sans-serif;
@@ -29,71 +27,11 @@
 }
 
 body {
+    margin: 0;
     color: var(--text-color);
     background-color: var(--overflow);
     font-family: var(--body-font);
 }
-/* main {
-    max-width: var(--default-size);
-    margin: 0 auto;
-}
-h1 {
-    margin: var(--mb-6);
-    text-align: center;
-    font-size: var(--h1-font);
-}
-button {
-    padding: .3rem .7rem;
-    color: var(--text-color);
-    background-color: var(--overlay-light);
-    border-radius: var(--mb-1);
-    border: .5px solid var(--overflow);
-    font-family: var(--body-font);
-}
-label {
-    margin-right: var(--mb-1);
-    font-size: .85rem;
-}
-input[type=number] {
-    height: 1.3rem;
-    width: 2.5rem;
-    padding-left: var(--mb-1);
-    color: var(--text-gray);
-    background-color: var(--overlay-light);
-    border: .5px solid var(--overflow);
-    border-radius: .5rem;
-}
-select {
-    height: 1.6rem;
-    width: 2.5rem;
-    padding-left: .2rem;
-    color: var(--text-gray);
-    background-color: var(--overlay-light);
-    border: .5px solid var(--overflow);
-    border-radius: .5rem;
-}
-.automaton-control {
-    margin: var(--mb-2) auto 0;
-    padding: var(--mb-2);
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--surface);
-    border-radius: .7rem .7rem 0 0;
-}
-.automaton-field {
-    height: var(--default-size);
-}
-.automaton-speed {
-    padding: var(--mb-1) 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--surface);
-    border-radius: 0 0 .7rem .7rem;
-    text-align: center;
-} */
 
 @media screen and (max-width: 575px) {
     main {
@@ -122,7 +60,7 @@ select {
         content: "Sorry but this app works on displays wider than 325px only :(";
         font-size: 1.5rem;
     }
-    h1, main {
+    #root {
         display: none;
     }
 }

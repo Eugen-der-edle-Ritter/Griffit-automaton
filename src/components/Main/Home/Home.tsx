@@ -1,7 +1,7 @@
 import React, { FC, ChangeEvent, useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 
-import { Cell, Rule } from '../modules/types';
+import { Cell, Rule } from '../../../modules/types';
 
 import { useInterval } from './hooks/useInterval';
 
@@ -9,13 +9,13 @@ import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Display } from './Display/Display';
 import { Accelerator } from './Accelerator/Accelerator';
 
-import { randomFill, transitionFill } from '../modules/filling';
+import { randomFill, transitionFill } from '../../../modules/filling';
 
 // import { useInterval } from '@/hooks/useInterval';
 
 const statesCount = 16;
 
-export const App: FC = () => {
+export const Home: FC = () => {
   const [width] = useState<number>(500);
   const [height] = useState<number>(500);
   const [cellsState, setCellsState] = useState<Cell[][]>([]);
