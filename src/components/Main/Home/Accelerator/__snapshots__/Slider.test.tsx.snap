@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider test cases Click on slider 1`] = `
+<DocumentFragment>
+  <label
+    class="css-jm2r67"
+  >
+    test: 
+  </label>
+  <input
+    class="css-1h5x3dy"
+    max="100"
+    min="1"
+    type="range"
+    value="50"
+  />
+</DocumentFragment>
+`;

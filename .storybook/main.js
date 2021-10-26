@@ -1,3 +1,5 @@
+const custom = require('../webpack.config.js');
+
 module.exports = {
   core: { builder: "webpack5" },
   "stories": [
@@ -8,4 +10,11 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials"
   ],
+  webpackFinal: (config) => ({
+    ...config,
+    resolve: {
+      ...config.resolve,
+      alias: { ...config.resolve.alias, ...custom.resolve.alias },
+    },
+  }),
 }

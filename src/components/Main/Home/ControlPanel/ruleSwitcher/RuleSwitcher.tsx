@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { setRule } from './ruleSlice';
 
 import { Rule } from '@/modules/types';
+import { RootState } from '@/automaton/automaton';
 
 export interface RuleSwitcherProps {
   label: string;
@@ -12,10 +13,15 @@ export interface RuleSwitcherProps {
 
 export const RuleSwitcher: FC<RuleSwitcherProps> = ({ label, options }) => {
   const dispatch = useDispatch();
+  const isPlaying = useSelector((state: RootState) => state.play.value);
   return (
     <Div>
       <Label>{label}: </Label>
-      <Select onChange={(e) => dispatch(setRule(e.target.value))}>
+      <Select
+        data-testid="select"
+        onChange={(e) => dispatch(setRule(e.target.value))}
+        disabled={isPlaying}
+      >
         {options.map((option, index) => (
           <Option key={index} value={option}>
             {option}
@@ -41,5 +47,8 @@ const Select = styled.select`
   border-radius: 0.5rem;
   outline: none;
   cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
 const Option = styled.option``;

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RuleSwitcher test cases RuleSwitcher changing value 1`] = `
+<DocumentFragment>
+  <div
+    class="css-0"
+  >
+    <label
+      class="css-jm2r67"
+    >
+      test: 
+    </label>
+    <select
+      class="css-vqx920"
+      data-testid="select"
+    >
+      <option
+        class="css-0"
+        value="Hash"
+      >
+        Hash
+      </option>
+      <option
+        class="css-0"
+        value="Demons"
+      >
+        Demons
+      </option>
+      <option
+        class="css-0"
+        value="Venus"
+      >
+        Venus
+      </option>
+    </select>
+  </div>
+</DocumentFragment>
+`;

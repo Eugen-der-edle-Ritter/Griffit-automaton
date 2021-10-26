@@ -2,14 +2,8 @@ import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionCreators as UndoActionCreators } from 'redux-undo';
-import { RootState } from '@/app/store';
-import {
-  PauseOutlined,
-  CaretRightOutlined,
-  StepForwardOutlined,
-  StepBackwardOutlined,
-  BgColorsOutlined,
-} from '@ant-design/icons';
+import { RootState } from '@/automaton/automaton';
+import { StepForwardOutlined, StepBackwardOutlined } from '@ant-design/icons';
 
 import { PlayToggler } from './playToggler/PlayToggler';
 import { RuleSwitcher } from './ruleSwitcher/RuleSwitcher';
@@ -17,25 +11,29 @@ import { ColorRandomizer } from './colorRandomizer/ColorRandomizer';
 
 export const ControlPanel: FC = () => {
   const dispatch = useDispatch();
-  const { past, future } = useSelector((state: RootState) => state.cells);
-  const isPlaying: boolean = useSelector(
-    (state: RootState) => state.play.value
-  );
+  const { past, future, isPlaying } = useSelector((state: RootState) => {
+    return {
+      past: state.cells.past,
+      future: state.cells.future,
+      isPlaying: state.play.value,
+    };
+  });
   const canUndo: boolean = past.length > 0;
   const canRedo: boolean = future.length > 0;
-  const toggleButton = isPlaying ? <PauseOutlined /> : <CaretRightOutlined />;
 
   return (
     <Section>
       <Wrapper>
         <Button
+          data-testid="undo"
           onClick={() => dispatch(UndoActionCreators.undo())}
           disabled={!canUndo}
         >
           <StepBackwardOutlined />
         </Button>
-        <PlayToggler value={!isPlaying}>{toggleButton}</PlayToggler>
+        <PlayToggler value={!isPlaying} />
         <Button
+          data-testid="redo"
           onClick={() => dispatch(UndoActionCreators.redo())}
           disabled={!canRedo}
         >
@@ -43,9 +41,7 @@ export const ControlPanel: FC = () => {
         </Button>
       </Wrapper>
       <RuleSwitcher label="Rule" options={['Hash', 'Demons', 'Venus']} />
-      <ColorRandomizer>
-        <BgColorsOutlined />
-      </ColorRandomizer>
+      <ColorRandomizer />
     </Section>
   );
 };
@@ -53,6 +49,7 @@ export const ControlPanel: FC = () => {
 const Section = styled.section`
   margin: 1rem auto 0;
   padding: 1rem;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -74,7 +71,6 @@ const Button = styled.button`
   }
   &:disabled {
     cursor: not-allowed;
-    background-color: #383b405e;
   }
 `;
 const Wrapper = styled.div``;

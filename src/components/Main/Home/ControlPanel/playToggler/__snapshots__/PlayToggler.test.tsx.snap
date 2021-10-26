@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayToggler test cases PlayToggler in pause state 1`] = `
+<DocumentFragment>
+  <button
+    class="css-2ly8m7"
+  >
+    <span
+      aria-label="pause"
+      class="anticon anticon-pause"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="pause"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M304 176h80v672h-80zm408 0h-64c-4.4 0-8 3.6-8 8v656c0 4.4 3.6 8 8 8h64c4.4 0 8-3.6 8-8V184c0-4.4-3.6-8-8-8z"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`PlayToggler test cases PlayToggler in play state 1`] = `
+<DocumentFragment>
+  <button
+    class="css-2ly8m7"
+  >
+    <span
+      aria-label="caret-right"
+      class="anticon anticon-caret-right"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="caret-right"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+      >
+        <path
+          d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;

@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { useDispatch } from 'react-redux';
+import { BgColorsOutlined } from '@ant-design/icons';
+
 import { setColors } from './colorSlice';
 
 const randomColors = () => {
@@ -19,11 +21,11 @@ const randomColors = () => {
   return newColors;
 };
 
-export const ColorRandomizer: FC = ({ children }) => {
+export const ColorRandomizer: FC = () => {
   const dispatch = useDispatch();
   return (
     <Button onClick={() => dispatch(setColors(randomColors()))}>
-      {children}
+      <BgColorsOutlined />
     </Button>
   );
 };

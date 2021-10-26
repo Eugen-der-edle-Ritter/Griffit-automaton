@@ -1,18 +1,24 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import { render } from '@testing-library/react';
 
-import { store } from '@/app/store';
+import { store } from '@/automaton/automaton';
 
 import { Display, hexToByteTransform, renderCanvas } from './Display';
 
 jest.mock('react-redux', () => ({
   __esModule: true,
   ...jest.requireActual('react-redux'),
+  useDispatch: jest.fn(),
   useSelector: jest.fn(),
 }));
 
 it('Display renders correctly', () => {
+  const mockDispatch = jest.fn();
+
+  (useDispatch as jest.Mock).mockReturnValue(mockDispatch);
+  (useSelector as jest.Mock).mockReturnValue(['#fff', '#aaa', '#ccc']);
+
   const { asFragment } = render(
     <Provider store={store}>
       <Display cellsState={[]} width={100} height={100} />

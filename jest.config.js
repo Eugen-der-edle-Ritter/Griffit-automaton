@@ -1,6 +1,7 @@
 module.exports = {
   clearMocks: true,
   collectCoverage: true,
+  coverageReporters: ['json', 'html'],
   coverageThreshold: {
     global: {
       branches: 90,
@@ -13,5 +14,6 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+  setupFiles: ['jest-canvas-mock'],
   testEnvironment: 'jsdom',
 };

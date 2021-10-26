@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ControlPanel test cases ControlPanel renders on pause 1`] = `
+<DocumentFragment>
+  <section
+    class="css-18a9xii"
+  >
+    <div
+      class="css-0"
+    >
+      <button
+        class="css-148csyh"
+        data-testid="undo"
+      >
+        <span
+          aria-label="step-backward"
+          class="anticon anticon-step-backward"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="step-backward"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M347.6 528.95l383.2 301.02c14.25 11.2 35.2 1.1 35.2-16.95V210.97c0-18.05-20.95-28.14-35.2-16.94L347.6 495.05a21.53 21.53 0 000 33.9M330 864h-64a8 8 0 01-8-8V168a8 8 0 018-8h64a8 8 0 018 8v688a8 8 0 01-8 8"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="css-2ly8m7"
+      >
+        <span
+          aria-label="caret-right"
+          class="anticon anticon-caret-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="caret-right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="css-148csyh"
+        data-testid="redo"
+      >
+        <span
+          aria-label="step-forward"
+          class="anticon anticon-step-forward"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="step-forward"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M676.4 528.95L293.2 829.97c-14.25 11.2-35.2 1.1-35.2-16.95V210.97c0-18.05 20.95-28.14 35.2-16.94l383.2 301.02a21.53 21.53 0 010 33.9M694 864h64a8 8 0 008-8V168a8 8 0 00-8-8h-64a8 8 0 00-8 8v688a8 8 0 008 8"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="css-0"
+    >
+      <label
+        class="css-jm2r67"
+      >
+        Rule: 
+      </label>
+      <select
+        class="css-vqx920"
+        data-testid="select"
+        disabled=""
+      >
+        <option
+          class="css-0"
+          value="Hash"
+        >
+          Hash
+        </option>
+        <option
+          class="css-0"
+          value="Demons"
+        >
+          Demons
+        </option>
+        <option
+          class="css-0"
+          value="Venus"
+        >
+          Venus
+        </option>
+      </select>
+    </div>
+    <button
+      class="css-2ly8m7"
+    >
+      <span
+        aria-label="bg-colors"
+        class="anticon anticon-bg-colors"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="bg-colors"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M766.4 744.3c43.7 0 79.4-36.2 79.4-80.5 0-53.5-79.4-140.8-79.4-140.8S687 610.3 687 663.8c0 44.3 35.7 80.5 79.4 80.5zm-377.1-44.1c7.1 7.1 18.6 7.1 25.6 0l256.1-256c7.1-7.1 7.1-18.6 0-25.6l-256-256c-.6-.6-1.3-1.2-2-1.7l-78.2-78.2a9.11 9.11 0 00-12.8 0l-48 48a9.11 9.11 0 000 12.8l67.2 67.2-207.8 207.9c-7.1 7.1-7.1 18.6 0 25.6l255.9 256zm12.9-448.6l178.9 178.9H223.4l178.8-178.9zM904 816H120c-4.4 0-8 3.6-8 8v80c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-80c0-4.4-3.6-8-8-8z"
+          />
+        </svg>
+      </span>
+    </button>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`ControlPanel test cases ControlPanel renders on pause 2`] = `
+<DocumentFragment>
+  <section
+    class="css-18a9xii"
+  >
+    <div
+      class="css-0"
+    >
+      <button
+        class="css-148csyh"
+        data-testid="undo"
+      >
+        <span
+          aria-label="step-backward"
+          class="anticon anticon-step-backward"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="step-backward"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M347.6 528.95l383.2 301.02c14.25 11.2 35.2 1.1 35.2-16.95V210.97c0-18.05-20.95-28.14-35.2-16.94L347.6 495.05a21.53 21.53 0 000 33.9M330 864h-64a8 8 0 01-8-8V168a8 8 0 018-8h64a8 8 0 018 8v688a8 8 0 01-8 8"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="css-2ly8m7"
+      >
+        <span
+          aria-label="pause"
+          class="anticon anticon-pause"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="pause"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M304 176h80v672h-80zm408 0h-64c-4.4 0-8 3.6-8 8v656c0 4.4 3.6 8 8 8h64c4.4 0 8-3.6 8-8V184c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="css-148csyh"
+        data-testid="redo"
+      >
+        <span
+          aria-label="step-forward"
+          class="anticon anticon-step-forward"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="step-forward"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M676.4 528.95L293.2 829.97c-14.25 11.2-35.2 1.1-35.2-16.95V210.97c0-18.05 20.95-28.14 35.2-16.94l383.2 301.02a21.53 21.53 0 010 33.9M694 864h64a8 8 0 008-8V168a8 8 0 00-8-8h-64a8 8 0 00-8 8v688a8 8 0 008 8"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="css-0"
+    >
+      <label
+        class="css-jm2r67"
+      >
+        Rule: 
+      </label>
+      <select
+        class="css-vqx920"
+        data-testid="select"
+        disabled=""
+      >
+        <option
+          class="css-0"
+          value="Hash"
+        >
+          Hash
+        </option>
+        <option
+          class="css-0"
+          value="Demons"
+        >
+          Demons
+        </option>
+        <option
+          class="css-0"
+          value="Venus"
+        >
+          Venus
+        </option>
+      </select>
+    </div>
+    <button
+      class="css-2ly8m7"
+    >
+      <span
+        aria-label="bg-colors"
+        class="anticon anticon-bg-colors"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="bg-colors"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M766.4 744.3c43.7 0 79.4-36.2 79.4-80.5 0-53.5-79.4-140.8-79.4-140.8S687 610.3 687 663.8c0 44.3 35.7 80.5 79.4 80.5zm-377.1-44.1c7.1 7.1 18.6 7.1 25.6 0l256.1-256c7.1-7.1 7.1-18.6 0-25.6l-256-256c-.6-.6-1.3-1.2-2-1.7l-78.2-78.2a9.11 9.11 0 00-12.8 0l-48 48a9.11 9.11 0 000 12.8l67.2 67.2-207.8 207.9c-7.1 7.1-7.1 18.6 0 25.6l255.9 256zm12.9-448.6l178.9 178.9H223.4l178.8-178.9zM904 816H120c-4.4 0-8 3.6-8 8v80c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-80c0-4.4-3.6-8-8-8z"
+          />
+        </svg>
+      </span>
+    </button>
+  </section>
+</DocumentFragment>
+`;

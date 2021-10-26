@@ -1,14 +1,21 @@
 import React from 'react';
+import { store } from '@/automaton/automaton';
+import { Provider } from 'react-redux';
+
 import { Story, Meta } from '@storybook/react';
 
-import { Accelerator, AcceleratorProps } from './Accelerator';
+import { Accelerator } from './Accelerator';
 
 export default {
   component: Accelerator,
-  title: 'Components/Accelerator',
+  title: 'Footer/Accelerator',
 } as Meta;
 
-const Template: Story<AcceleratorProps> = (args) => <Accelerator {...args} />;
+const Template: Story = (args) => (
+  <Provider store={store}>
+    <Accelerator {...args} />
+  </Provider>
+);
 
 export const AcceleratorExample = Template.bind({});
 
